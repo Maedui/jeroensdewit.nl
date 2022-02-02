@@ -1,0 +1,191 @@
+@use '../abstracts/index' as *;
+
+.navbar{
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &_home{
+    top:80px;
+  }
+}
+
+.logo{
+  margin: 0;
+}
+
+.menu_link{
+  position: relative;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  padding: 10px;
+
+  &::after, &::before{
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: $secondary;
+    position: absolute;
+    transition: .5s all ease;
+    right: 0;
+  }
+
+  &-active {
+    &::before{
+      transform: rotate(45deg) translateY(32px);
+      transition: .5s all ease;
+      right: -20px;
+    }
+
+    &::after{
+      transform: rotate(-45deg) translateY(-32px);
+      transition: .5s all ease;
+      right: -20px;
+    }
+  }
+
+  &::before{
+    top: 0;
+  }
+
+  &::after{
+    bottom: 0;
+  }
+
+}
+
+.menu{
+  overflow: hidden;
+
+  &_transition-planet{
+    height: 140vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, -50%);
+    z-index: 20;
+
+    &-open{
+      -webkit-animation: menuSwitch 1.8s linear;
+      -moz-animation: menuSwitch 1.8s linear;
+      -o-animation: menuSwitch 1.8s linear;
+      animation: menuSwitch 1.8s linear;
+    }
+
+    &-closed{
+      -webkit-animation: menuSwitchClosed 1.4s linear;
+      -moz-animation: menuSwitchClosed 1.4s linear;
+      -o-animation: menuSwitchClosed 1.4s linear;
+      animation: menuSwitchClosed 1.4s linear;
+    }
+
+  }
+
+  &_nav{
+    display: flex;
+    transition-delay: 2s;
+    transform: translateX(100%);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &-closed{
+      -webkit-animation: menuNavLeave 2s ease-in-out;
+      -moz-animation: menuNavLeave 2s ease-in-out;
+      -o-animation: menuNavLeave 2s ease-in-out;
+      animation: menuNavLeave 2s ease-in-out;
+    }
+
+
+    &-open{
+      transform: translateX(0);
+      -webkit-animation: menuNavEnter 2s ease-in-out;
+      -moz-animation: menuNavEnter 2s ease-in-out;
+      -o-animation: menuNavEnter 2s ease-in-out;
+      animation: menuNavEnter 2s ease-in-out;
+    }
+  }
+
+  &_item{
+    display: flex;
+    align-items: center;
+  }
+
+  &_planet{
+    width: 120px;
+    margin: 10px;
+
+    -webkit-animation: rotatePlanet 26s linear infinite;
+    -moz-animation: rotatePlanet 26s linear infinite;
+    -o-animation: rotatePlanet 26s linear infinite;
+    animation: rotatePlanet 26s linear infinite;
+  }
+
+  &_text{
+    width: 200px;
+    font-size: 2em;
+  }
+}
+
+
+//
+//  Small Mobile (420px)
+//
+
+@media only screen and (max-width: 420px) {
+  .logo{
+    font-size: $font-size-xs;
+  }
+
+  .navbar{
+    padding: 20px 20px;
+    &_home{
+
+    }
+  }
+
+  .menu {
+    &_link{
+      width: 20px;
+      height: 10px;
+
+      &-active {
+        &::before{
+          transform: rotate(45deg) translateY(19px);
+          transition: .5s all ease;
+          right: -20px;
+        }
+
+        &::after{
+          transform: rotate(-45deg) translateY(-19px);
+          transition: .5s all ease;
+          right: -20px;
+        }
+      }
+    }
+
+    &_planet {
+      width: 80px;
+    }
+
+    &_nav{
+      top: 120px;
+      height: 80%;
+    }
+  }
+
+}

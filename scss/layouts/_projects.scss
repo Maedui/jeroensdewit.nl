@@ -1,0 +1,344 @@
+@use '../abstracts/index' as *;
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  &_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    margin-bottom: 10px;
+  }
+
+  &_showcase{
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_container{
+    min-width: 80vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_more{
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 100px;
+    border-bottom: 1px solid $accent;
+    padding: 10px;
+    margin-top: 40px;
+
+    &:hover {
+      &::after {
+        transform: none;
+      }
+    }
+
+    &::after{
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: $accent;
+      transform-origin: top left;
+      transform: skewY(10deg) translateY(100%);
+      transition: .5s all ease;
+      z-index: -1;
+    }
+  }
+}
+
+.project{
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  padding: 0 20px 10px 20px;
+  border-bottom: 1px solid rgba($primary, 0.6);
+  margin: 20px;
+  min-height: 210px;
+  transition: .5s ease-in-out;
+  align-items: center;
+  justify-content: space-between;
+
+
+  &_side{
+    border-bottom: 1px solid rgba($accent, 0.6);
+  }
+
+  &_link{
+    text-decoration: underline;
+    font-style: italic;
+
+    &-big{
+      font-size: $font-size-medium;
+      margin: 40px 0 100px 0;
+    }
+  }
+
+  &_back{
+    position: relative;
+    cursor: pointer;
+    align-self: end;
+    border-bottom: 1px solid $accent;
+    padding: 10px 10px 10px 40px;
+    margin: 50px;
+
+    & h1{
+      font-size: 2em;
+    }
+
+    &::after, &::before{
+      content: '';
+      bottom: -1px;
+      left: 0;
+      width: 40px;
+      height: 1px;
+      position: absolute;
+      background: $accent;
+      transform-origin: bottom left;
+      transition: .5s all ease;
+    }
+
+    &:hover {
+      &::after {
+        transform: rotate(30deg);
+      }
+      &::before {
+        transform: rotate(-30deg);
+      }
+    }
+
+  }
+
+  &_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & h1{
+    font-size: $font-size-medium;
+  }
+
+  & h3{
+    font-size: $font-size-small;
+  }
+
+  &_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+
+    & h1{
+      font-size: $font-size-large;
+    }
+  }
+
+  &_text{
+    max-width: 80vw;
+    margin-bottom: 100px;
+  }
+
+  &_images{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+
+    &-image{
+      max-width: 20vw;
+    }
+
+    &-image2{
+      max-width: 30vw;
+    }
+  }
+
+  &:hover{
+    &::after{
+      transform: none;
+    }
+
+    & h1, h3{
+      transition: color .5s ease-in-out;
+    }
+  }
+
+  &::after{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: $accent;
+    transform-origin: top left;
+    transform: skewY(10deg) translateY(100%);
+    transition: .5s all ease;
+    z-index: -1;
+  }
+
+  &_1::after {
+      background-image: url("./../images/jeroenNew.png");
+  }
+
+  &_2::after{
+      background-image: url("./../images/Museum-Dr8888.png");
+  }
+
+  &_3::after{
+      background-image: url("./../images/lisette.png");
+  }
+
+  &_4::after{
+    background-image: url("./../images/appwiki.png");
+  }
+
+  &_5::after{
+    background-image: url("./../images/jeroenOud.png");
+  }
+
+  &_6:after{
+    background-image: url("./../images/meLearning.png");
+  }
+
+  &_7:after{
+    background-image: url("./../images/campusScan.png");
+  }
+
+  &_activities{
+    min-width: 300px;
+
+    &-multiple{
+      margin-bottom: 0;
+    }
+
+    & h4{
+      margin-top: 5px;
+      font-style: italic;
+    }
+  }
+
+  &_landingspage{
+    flex-direction: column;
+    justify-content: center;
+    min-height: unset;
+  }
+}
+
+//
+//  Tablet (800px)
+//
+
+@media only screen and (max-width: 800px) {
+  .project{
+    &_title{
+      & h1{
+        text-align: center;
+      }
+    }
+
+    & h1{
+      font-size: $font-size-small;
+    }
+
+    & h3{
+      font-size: $font-size-xs;
+      text-align: right;
+    }
+
+    & h4{
+      text-align: right;
+    }
+
+    &_activities{
+      min-width: unset;
+    }
+
+    &_images{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &-image, &-image2{
+        max-width: 90vw;
+        margin: 10px;
+      }
+    }
+
+    &_back{
+      &::after {
+        transform: rotate(30deg);
+      }
+      &::before {
+        transform: rotate(-30deg);
+      }
+    }
+  }
+
+  .projects {
+    &_showcase {
+      min-width: 80%;
+    }
+  }
+
+
+}
+//
+//  Mobile (420px)
+//
+
+@media only screen and (max-width: 420px) {
+  .project{
+    flex-direction: column;
+    min-height: unset;
+
+    &_title{
+      & h1{
+        font-size: $font-size-medium;
+      }
+    }
+
+    & h1{
+      font-size: $font-size-small;
+    }
+
+    & h3{
+      font-size: $font-size-xs;
+      text-align: center;
+    }
+
+    & h4{
+      font-size: $font-size-xxs;
+      text-align: center;
+    }
+
+    &_back{
+      & h1{
+        font-size: $font-size-small;
+      }
+    }
+  }
+  .projects{
+    &_showcase{
+      min-width: unset;
+    }
+    &_more{
+      margin-bottom: 100px;
+    }
+  }
+}
+

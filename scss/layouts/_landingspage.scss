@@ -1,0 +1,240 @@
+@use '../abstracts/index' as *;
+
+.callToAction{
+  background: $primary;
+  width: 100%;
+  border-radius: 4px;
+  margin: 0;
+  text-align: center;
+
+  &_title{
+    margin: 0;
+    padding: 0 20px 5px;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+  }
+
+  &_text{
+    margin: 0;
+    padding: 0 20px 5px;
+    font-size: $font-size-xs;
+  }
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+}
+.logo{
+  font-size: $font-size-small;
+}
+
+.section-title{
+  font-size: $font-size-large;
+}
+
+#title{
+  font-size: $font-size-xl;
+}
+
+#subTitle{
+  font-size: $font-size-small;
+}
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-end;
+
+  &_small{
+    min-height: 70vh;
+  }
+
+  &_news{
+    flex-grow: 2;
+    position: relative;
+  }
+
+  &_rocket{
+    width: 100%;
+
+    &-text{
+      position: absolute;
+    }
+  }
+
+  &_links{
+    display: flex;
+    flex-grow: 2;
+    max-height: 500px;
+    max-width: 100%;
+  }
+
+  &_email{
+    display: flex;
+  }
+
+  &_socials{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 30;
+
+    &-link{
+      display: flex;
+      margin: 20px;
+    }
+
+    &-text{
+      font-size: $font-size-small;
+    }
+
+    &-email{
+      font-size: $font-size-small;
+    }
+
+    &-img{
+      width: 60px;
+      margin-right: 20px;
+      fill: white
+    }
+  }
+
+  &_planet{
+    height: 100px;
+    width: 150%;
+    position: relative;
+  }
+}
+
+#contact_planet{
+  position: absolute;
+  width: 200%;
+  left: -50%;
+  -webkit-animation: rotatePlanet 100s linear infinite;
+  -moz-animation: rotatePlanet 100s linear infinite;
+  -o-animation: rotatePlanet 100s linear infinite;
+  animation: rotatePlanet 100s linear infinite;
+}
+
+#contact_astronaut{
+  max-width: 400px;
+  z-index: 2;
+  -webkit-animation: astronaut 10s ease-in-out infinite;
+  -moz-animation: astronaut 10s ease-in-out infinite;
+  -o-animation: astronaut 10s ease-in-out infinite;
+  animation: astronaut 10s ease-in-out infinite;
+}
+
+
+//
+//  Tablet (960px)
+//
+
+@media only screen and (max-width: 960px) {
+  .contact{
+    &_email{
+      flex-direction: column;
+    }
+
+    &_socials{
+      &-email{
+        margin: 0;
+      }
+    }
+  }
+
+}
+
+//
+//  Tablet (800px)
+//
+
+@media only screen and (max-width: 800px) {
+  .callToAction{
+    &_title{
+      font-size: $font-size-xs;
+      padding: 5px 0;
+    }
+
+    &_text{
+      font-size: $font-size-xxs;
+      padding: 0 5px 10px;
+    }
+  }
+
+  #title{
+    font-size: $font-size-large;
+    text-align: center;
+  }
+
+  .section-title{
+    font-size: $font-size-medium;
+    //margin-bottom: 0;
+  }
+
+  #contact_astronaut{
+    display: none;
+  }
+
+  .contact{
+    &_email{
+      flex-direction: column;
+    }
+
+    &_socials{
+      &-email{
+        margin: 0;
+      }
+    }
+  }
+
+}
+
+//
+//  Mobile (420px)
+//
+
+@media only screen and (max-width: 420px) {
+  .callToAction{
+    &_title{
+      padding: 0;
+    }
+
+    &_text{
+      padding: 0 5px 5px;
+    }
+  }
+
+  .contact{
+    &_socials{
+      &-link{
+        margin: 10px 20px;
+      }
+
+      &-text{
+        font-size: $font-size-xs;
+      }
+
+      &-email{
+        font-size: $font-size-xs;
+      }
+    }
+
+    &_links{
+      max-width: 100%;
+    }
+  }
+
+}
+
+
+
+
+

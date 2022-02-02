@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+
+.button{
+  background: $primary;
+  color: $secondary;
+  width: 500px;
+
+}
